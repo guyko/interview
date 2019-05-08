@@ -17,6 +17,7 @@ class TestYearWithMaxPeople : TestCase() {
             map[it.second] = (map[it.second] ?: 0) - 1
         }
 
+        // sot sure it's smart to sort. there is a goog chance that nlogn > years range
         val years = map.keys.sorted()
         var max = 0
         var current = 0
