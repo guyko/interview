@@ -2,7 +2,7 @@ package com.guyko
 
 import junit.framework.TestCase
 
-class SubSumTest : TestCase() {
+class TestSubSum : TestCase() {
 
 
     fun testIt() {
