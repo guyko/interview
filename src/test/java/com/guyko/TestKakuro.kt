@@ -11,10 +11,7 @@ class TestKakuro : TestCase() {
 
 
     private fun kakuro(s: Int, n: Int, p: Int): List<List<Int>> {
-        if (s <= 0) {
-            return emptyList()
-        }
-        if (p == 0) {
+        if (s <= 0 || p <= 0) {
             return emptyList()
         }
         if (n == 1) {
