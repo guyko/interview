@@ -33,10 +33,10 @@ class TestSubstrings : TestCase() {
         return substrings
     }
 
-    private fun minIndex(tmp: String, permutations: List<String>): Int {
+    private fun minIndex(s: String, permutations: List<String>): Int {
         var minNonZeroIdx = -1
         for (p in permutations) {
-            val idx = tmp.indexOf(p)
+            val idx = s.indexOf(p)
             if (idx < 0) {
                 continue
             }

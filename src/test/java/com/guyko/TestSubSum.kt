@@ -11,8 +11,9 @@ class TestSubSum : TestCase() {
 
 
     private fun maxsubsum(arr: IntArray): Int {
-        var maxSoFar = arr[0]
         var maxEndingHere = arr[0]
+        var maxSoFar = arr[0]
+
         for (i in 1 until arr.size) {
             maxEndingHere = Math.max(maxEndingHere + arr[i], arr[i])
             maxSoFar = Math.max(maxEndingHere, maxSoFar)

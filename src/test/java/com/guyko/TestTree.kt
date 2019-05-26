@@ -60,14 +60,13 @@ class TestTree : TestCase() {
 
     }
 
-    private fun reverse(tree: Node): Node {
+    private fun reverse(tree: Node?): Node? {
+        if (tree == null) {
+            return null
+        }
         val reversed = Node(tree.value)
-        if (tree.left != null) {
-            reversed.right = reverse(tree.left!!)
-        }
-        if (tree.right != null) {
-            reversed.left = reverse(tree.right!!)
-        }
+        reversed.right = reverse(tree.left)
+        reversed.left = reverse(tree.right)
         return reversed
     }
 
@@ -78,29 +77,31 @@ class TestTree : TestCase() {
         return "(${tree.value}L${toString(tree.left)}R${toString(tree.right)})"
     }
 
-    private fun dser(s: String): Node {
+    private fun dser(s: String): Node? {
         val map = mutableMapOf<Int, Node>()
-        var root: Node? = null
         val tokens = s.split(",")
-        tokens.forEach {
-            val beforeL = it.substringBefore("L")
-            val beforR = it.substringBefore("R")
-            if (it != beforR) {
-                val parentId = beforR.toInt()
-                val node = Node(it.substringAfter("R").toInt())
-                map[node.value] = node
-                map[parentId]!!.right = node
-            } else if (it != beforeL) {
-                val parentId = beforeL.toInt()
-                val node = Node(it.substringAfter("L").toInt())
-                map[node.value] = node
-                map[parentId]!!.left = node
-            } else {
-                root = Node(it.toInt())
-                map[root!!.value] = root!!
+        if (tokens.isEmpty()) {
+            return null
+        }
+        val root = Node(tokens[0].toInt())
+        map[root.value] = root
+        (1 until tokens.size).map { tokens[it] }.forEach {
+            when {
+                it.contains("R") -> {
+                    val parentId = it.substringBefore("R").toInt()
+                    val node = Node(it.substringAfter("R").toInt())
+                    map[node.value] = node
+                    map[parentId]!!.right = node
+                }
+                it.contains("L") -> {
+                    val parentId = it.substringBefore("L").toInt()
+                    val node = Node(it.substringAfter("L").toInt())
+                    map[node.value] = node
+                    map[parentId]!!.left = node
+                }
             }
         }
-        return root!!
+        return root
     }
 
 
