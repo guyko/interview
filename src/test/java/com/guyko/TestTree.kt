@@ -33,6 +33,25 @@ class TestTree : TestCase() {
         assertFalse(same(tree, tree.copy(left = null)))
     }
 
+    fun testPrintLeavesFirst() {
+        val tree = Node(value = 5,
+                left = Node(value = 4,
+                        left = Node(value = 3),
+                        right = Node(value = 17,
+                                left = Node(value = 54))),
+                right = Node(value = 8,
+                        right = Node(value = 16, left = Node(44), right = Node(88))))
+
+        val nodesByDepth = mutableMapOf<Int, MutableList<Int>>()
+        val depth = traverseSetDepthAndReturnDepth(tree, nodesByDepth)
+        (0..depth).forEach {
+            val nodes = nodesByDepth[it]
+            println(nodes!!.joinToString(" "))
+        }
+
+
+    }
+
     fun testSerialization() {
         val tree = Node(value = 5,
                 left = Node(value = 4,
@@ -114,6 +133,20 @@ class TestTree : TestCase() {
             s += ",${tree.value}R${ser(tree.right!!)}"
         }
         return s
+    }
+
+    private fun traverseSetDepthAndReturnDepth(tree: Node?, nodesByDepth: MutableMap<Int, MutableList<Int>>): Int {
+        if (tree == null) {
+            return -1
+        }
+
+        val leftD = traverseSetDepthAndReturnDepth(tree.left, nodesByDepth)
+        val rightD = traverseSetDepthAndReturnDepth(tree.right, nodesByDepth)
+
+        val depth = Math.max(leftD, rightD) + 1
+        val list = nodesByDepth.computeIfAbsent(depth) { mutableListOf() }
+        list.add(tree.value)
+        return depth
     }
 
 
