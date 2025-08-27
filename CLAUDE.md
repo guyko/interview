@@ -41,13 +41,19 @@ src/
 ├── main/java/com/guyko/
 │   └── App.java              # Simple main application entry point
 └── test/java/com/guyko/
+    ├── TestTwoSum.kt         # LeetCode #1: Two Sum (Array/HashMap)
+    ├── TestValidParentheses.kt # LeetCode #20: Valid Parentheses (Stack)
+    ├── TestPalindrome.kt     # LeetCode #5,9: Palindrome problems
+    ├── TestBinarySearch.kt   # LeetCode #33,153,704: Binary search variants
+    ├── TestClimbingStairs.kt # LeetCode #70,300,322: Dynamic programming
+    ├── TestMergeIntervals.kt # LeetCode #56,57: Interval problems
     ├── TestKakuro.kt         # Kakuro puzzle solver (combinatorial problem)
     ├── TestLinked.kt         # Linked list operations and reversal algorithms
-    ├── TestRegex1.kt         # Regular expression challenges
-    ├── TestSubSum.kt         # Subset sum algorithms
+    ├── TestRegex1.kt         # Regular expression matching with wildcards
+    ├── TestSubSum.kt         # Maximum subarray (Kadane's algorithm)
     ├── TestSubstrings.kt     # String processing algorithms
     ├── TestTree.kt           # Tree data structure implementations
-    └── TestYearWithMaxPeople.kt # Date/time algorithm challenges
+    └── TestYearWithMaxPeople.kt # Timeline optimization problems
 ```
 
 ### Testing Framework
@@ -68,3 +74,17 @@ src/
 - Test classes extend JUnit's `TestCase` for assertion methods
 - Data structures often use Kotlin data classes for clean syntax
 - Recursive algorithms are common (linked list reversal, tree traversal, etc.)
+- Each solution includes time/space complexity analysis in comments
+- LeetCode problem numbers are referenced for easy cross-referencing
+
+### Algorithm Categories Covered
+- **Array & HashMap**: Two Sum, Maximum Subarray
+- **Stack**: Valid Parentheses
+- **String Processing**: Palindromes, Pattern Matching, Substrings
+- **Binary Search**: Classic search, rotated arrays, minimum finding
+- **Dynamic Programming**: Climbing stairs, coin change, longest increasing subsequence
+- **Intervals**: Merging and inserting intervals
+- **Trees**: Binary tree operations and traversals
+- **Linked Lists**: Reversal and manipulation algorithms
+- **Mathematical**: Combinatorial puzzles (Kakuro)
+- **Timeline Processing**: Year with maximum people alive
