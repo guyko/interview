@@ -2,15 +2,7 @@ package com.guyko
 
 import junit.framework.TestCase
 
-class TestPalindrome : TestCase() {
-
-    fun testIsPalindrome() {
-        assertTrue(isPalindrome(121))
-        assertFalse(isPalindrome(-121))
-        assertFalse(isPalindrome(10))
-        assertTrue(isPalindrome(0))
-        assertTrue(isPalindrome(1))
-    }
+class TestLongestPalindromicSubstring : TestCase() {
 
     fun testLongestPalindrome() {
         assertEquals("bab", longestPalindrome("babad"))
@@ -20,28 +12,9 @@ class TestPalindrome : TestCase() {
     }
 
     /**
-     * LeetCode #9: Palindrome Number
-     * Given an integer x, return true if x is palindrome integer.
-     * 
-     * Time Complexity: O(log n)
-     * Space Complexity: O(1)
-     */
-    private fun isPalindrome(x: Int): Boolean {
-        if (x < 0) return false
-        
-        var original = x
-        var reversed = 0
-        
-        while (original > 0) {
-            reversed = reversed * 10 + original % 10
-            original /= 10
-        }
-        
-        return x == reversed
-    }
-
-    /**
      * LeetCode #5: Longest Palindromic Substring
+     * https://leetcode.com/problems/longest-palindromic-substring/
+     * 
      * Given a string s, return the longest palindromic substring in s.
      * 
      * Time Complexity: O(n²)

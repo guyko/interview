@@ -5,7 +5,13 @@
       "Bash(mvn test-compile)",
       "Bash(mvn test)",
       "Bash(mvn package)",
-      "Bash(mvn clean test)"
+      "Bash(mvn clean test)",
+      "Bash(rm \"/Users/gkobrinsky/dev/gh/interview/src/main/java/com/guyko/App.java\" \"/Users/gkobrinsky/dev/gh/interview/src/test/java/com/guyko/AppTest.java\")",
+      "Bash(mvn compile)",
+      "Bash(git add src/main/java/com/guyko/App.java src/test/java/com/guyko/AppTest.java)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nremove unused App and AppTest files\n\n🤖 Generated with [Claude Code](https://claude.ai/code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(git push origin master)",
+      "Bash(git add .)"
     ],
     "deny": [],
     "ask": []
